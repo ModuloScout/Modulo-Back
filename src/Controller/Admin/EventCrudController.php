@@ -11,9 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 
 class EventCrudController extends AbstractCrudController
@@ -30,7 +29,7 @@ class EventCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('un évènement')
             ->setPageTitle("index", "Les évènements");
     }
-    
+
     public function configureActions(Actions $actions): Actions
     {
         return $actions
@@ -53,7 +52,7 @@ class EventCrudController extends AbstractCrudController
             AssociationField::new('concernedStructure', 'Structures concernées')->hideOnIndex(),
             AssociationField::new('concernedRole', 'Invitation par fonction')->hideOnIndex(),
             AssociationField::new('concernedUser', 'Invitation nominative')->hideOnIndex(),
-            BooleanField::new('active', 'Activé / Désactivé'),
+            BooleanField::new('isActive', 'Activé / Désactivé'),
 
         ];
     }

@@ -26,7 +26,7 @@ class TypeEvent
     private ?bool $isObligated;
 
     #[ORM\OneToMany(mappedBy: 'typeEvent', targetEntity: Event::class)]
-    private ArrayCollection $events;
+    private $events;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description;

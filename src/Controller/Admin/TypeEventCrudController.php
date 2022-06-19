@@ -3,14 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\TypeEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 
 class TypeEventCrudController extends AbstractCrudController
 {
@@ -41,7 +41,7 @@ class TypeEventCrudController extends AbstractCrudController
             TextField::new('name', 'Intitulé'),
             TextareaField::new('description'),
             BooleanField::new('is_active', 'Activé / Désactivé'),
-            BooleanField::new('is_obligated', 'Visibilié obligatoire')
+            BooleanField::new('is_obligated', 'Visibilité obligatoire')
         ];
     }
 
