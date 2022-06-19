@@ -20,7 +20,7 @@ final class Version20220610072340 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE credential ADD feature_id INT DEFAULT NULL, ADD role_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE credential ADD feature_id INT DEFAULT NULL, ADD role_id BINARY(16) DEFAULT NULL COMMENT \'(DC2Type:uuid)\'');
         $this->addSql('ALTER TABLE credential ADD CONSTRAINT FK_57F1D4B60E4B879 FOREIGN KEY (feature_id) REFERENCES feature (id)');
         $this->addSql('ALTER TABLE credential ADD CONSTRAINT FK_57F1D4BD60322AC FOREIGN KEY (role_id) REFERENCES role (id)');
         $this->addSql('CREATE INDEX IDX_57F1D4B60E4B879 ON credential (feature_id)');

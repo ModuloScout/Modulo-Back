@@ -14,7 +14,7 @@ class FeatureFixture extends Fixture
             ['name' => "Créer un évènement, le modifier, le supprimer"],
             ['name' => "Modifier les évènements créés par un tiers dans ma structure"],
             ['name' => "Modifier les évènements créés par un tiers dans une structure enfant"],
-            ['name' => "Supprimer les évènements créers par un tiers"],
+            ['name' => "Supprimer les évènements crées par un tiers"],
             ['name' => "Supprimer les évènements créés par un tiers dans une structure enfant"],
             ['name' => "Personnaliser les fonctions invitées"],
             ['name' => "Définir des invitations nominatives"],

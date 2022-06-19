@@ -3,43 +3,24 @@
 namespace App\DataFixtures;
 
 use App\Entity\Credential;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Persistence\ObjectManager;
-use App\Entity\Role;
-use App\Entity\Feature;
 
 
-class CredentialFixture extends Fixture implements DependentFixtureInterface
+class CredentialFixture extends GeneratedFixture implements DependentFixtureInterface
 {
+    public const REFERENCE_NAME = Credential::class;
+    public const MAX_COUNT = 10;
 
-    public function load(ObjectManager $manager): void
+    public function getDependencies(): array
     {
-        $credential = new Credential();
-        $credential->setRole($this->getReference('role-C-SG'));
-        $credential->setFeature($this->getReference('feature_1'));
-        $manager->persist($credential);
-        $manager->flush();
-
-        $credential = new Credential();
-        $credential->setRole($this->getReference('role-ACCOCO-Comp.'));
-        $credential->setFeature($this->getReference('feature_2'));
-        $manager->persist($credential);
-        $manager->flush();
-
-        $credential = new Credential();
-        $credential->setRole($this->getReference('role-RF-FA'));
-        $credential->setFeature($this->getReference('feature_3'));
-        $manager->persist($credential);
-        $manager->flush();
-
+        return [FeatureFixture::class, RoleFixture::class];
     }
 
-    public function getDependencies()
+    protected function generate(): Credential
     {
-        return array(
-            FeatureFixture::class,
-            RoleFixture::class,
-        );
+        return (new Credential())
+            ->setFeature($this->getReference('feature_' . random_int(0, 9)))
+            ->setRole($this->getRandomRef(RoleFixture::class));
     }
+
 }
