@@ -14,7 +14,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 
 
-#[UniqueEntity(fields: ['uuid'], message: 'There is already an account with this uuid')]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource]
