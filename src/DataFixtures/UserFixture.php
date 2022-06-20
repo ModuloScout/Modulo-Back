@@ -6,7 +6,6 @@ use App\Entity\User;
 use App\Enum\Gender;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-
 final class UserFixture extends GeneratedFixture
 {
     public const REFERENCE_NAME = User::class;
@@ -15,8 +14,9 @@ final class UserFixture extends GeneratedFixture
 
     public function __construct(
         private readonly UserPasswordHasherInterface $passwordHasher,
-        string $locale
-    ) {
+        string                                       $locale
+    )
+    {
         parent::__construct($locale);
     }
 
@@ -29,8 +29,7 @@ final class UserFixture extends GeneratedFixture
             ->setGenre($this->faker->boolean() ? Gender::Men : Gender::Woman)
             ->setFirstName(
                 $user->getGenre() === Gender::Men ? $this->faker->firstNameMale() : $this->faker->firstNameFemale()
-            )
-        ;
+            );
 
         return $user;
     }

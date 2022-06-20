@@ -38,7 +38,9 @@ final class TypeEventFixture extends Fixture
 
             $manager->persist($typeEvent1);
             $this->addReference('type_event_' . $i++, $typeEvent1);
+
         }
         $manager->flush();
     }
+
 }
