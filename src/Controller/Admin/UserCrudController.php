@@ -7,8 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class UserCrudController extends AbstractCrudController
@@ -42,14 +42,10 @@ class UserCrudController extends AbstractCrudController
             TextField::new('password')->hideOnIndex()->hideOnDetail()->hideOnForm(),
             TextField::new('firstName', 'Prénom'),
             TextField::new('lastName', 'Nom'),
-            /*ArrayField::new('genre', 'Genre')
-                ->setFormType(ChoiceType::class)
-                ->setFormTypeOptions([
-                    'choices' => [
-                        'Homme' => Gender::Men,
-                        'Femme' => Gender::Woman
-                    ]
-                ]),*/
+            ChoiceField::new('genre', 'Genre')->setChoices([
+                'Homme' => 'enum.gender.men',
+                'Femme' => 'enum.gender.woman'
+            ])
         ];
     }
 

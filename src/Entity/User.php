@@ -67,7 +67,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-
     public function getEmail(): string
     {
         return $this->email;
@@ -227,7 +226,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->getFullName();
     }
-
+    
     public function getFullName(): string
     {
         return $this->getFirstName() . ' ' . $this->getLastName();
